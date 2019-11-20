@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Passport Authentication</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link href="stylesheets/style.css" rel="stylesheet">
+  <style>
+      body{
+        background: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-cartoon-fresh-blue-underwater-diving-background-worldcartoonseabackground-display-boardadbackground-image_54824.jpg)no-repeat center center fixed;
+        background-size: cover;
+      }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar bg-light">
+        <a class="navbar-brand">Financial Friend-Z</a>
+      </nav>
+      <br>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <h2>Sign Up Form</h2>
+            <form class="signup">
+              <div class="form-group">
+                <label for="user-name-input">Username</label>
+                <input type="text" class="form-control" id="user-name-input" placeholder="Username">
+                <br>
+                <label for="name-input">Name</label>
+                <input type="text" class="form-control" id="name-input" placeholder="Name">
+                <br>
+                <label for="email-input">Email address</label>
+                <input type="email" class="form-control" id="email-input" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="password-input">Password</label>
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                <br>
+                <label for="confirmPassword">Password</label>
+                <input type="password" class="form-control" id="confirminput" placeholder="Password">
+              </div>
+              <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+              </div>
+              <button id="link-button" class="btn btn-primary">Link Account</button>
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script 
+src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script type="text/javascript">
+(function($) {
+  var handler = Plaid.create({
+    clientName: 'Plaid Quickstart',
+    // Optional, specify an array of ISO-3166-1 alpha-2 country
+    // codes to initialize Link; European countries will have GDPR
+    // consent panel
+    countryCodes: ['US'],
+    env: 'development',
+    // Replace with your public_key from the Dashboard
+    key: 'd709a077c62c423a5d9652fa75e96b',
+    product: ['transactions'],
+    // Optional, use webhooks to get transaction and error updates
+    webhook: 'https://requestb.in',
+    // Optional, specify a language to localize Link
+    language: 'en',
+    // Optional, specify userLegalName and userEmailAddress to
+    // enable all Auth features
+    userLegalName: 'John Appleseed',
+    userEmailAddress: 'jappleseed@yourapp.com',
+    onLoad: function() {
+      // Optional, called when Link loads
+    },
+    onSuccess: function(public_token, metadata) {
+      // Send the public_token to your app server.
+      // The metadata object contains info about the institution the
+      // user selected and the account ID or IDs, if the
+      // Select Account view is enabled.
+      $.post('/get_access_token', {
+        public_token: public_token,
+      });
+    },
+    onExit: function(err, metadata) {
+      // The user exited the Link flow.
+      if (err != null) {
+        // The user encountered a Plaid API error prior to exiting.
+      }
+      // metadata contains information about the institution
+      // that the user selected and the most recent API request IDs.
+      // Storing this information can be helpful for support.
+    },
+    onEvent: function(eventName, metadata) {
+      // Optionally capture Link flow events, streamed through
+      // this callback as your users connect an Item to Plaid.
+      // For example:
+      // eventName = "TRANSITION_VIEW"
+      // metadata  = {
+      //   link_session_id: "123-abc",
+      //   mfa_type:        "questions",
+      //   timestamp:       "2017-09-14T14:42:19.350Z",
+      //   view_name:       "MFA",
+      // }
+    }
+  });
+
+  $('#link-button').on('click', function(e) {
+    handler.open();
+  });
+})(jQuery);
+</script>
+            </form>
+            <br />
+            <p>Or log in <a href="/login">here</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+
+</body>
+
+</html>
