@@ -1,33 +1,27 @@
-<div id="home">
+<nav class="navbar bg-light">
+    <a class="navbar-brand">Financial Friend-Z</a>
+  </nav>
+<br>
   <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card justify-content-center">
+      <div class="card-body text-center" id="accountBox">
+        {{>login}}
       </div>
     </div>
+      </div>
+    </div>
+    
   </div>
-</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+
+<style>
+  body{
+    background: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-cartoon-fresh-blue-underwater-diving-background-worldcartoonseabackground-display-boardadbackground-image_54824.jpg)no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
