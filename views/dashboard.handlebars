@@ -1,0 +1,31 @@
+<div id="userDashboard">
+    <div class="row">
+        <div class="balance col-md-12">
+            <h1>Account Balance: <span id="accountBalance"></span></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="transactions col-md-5">
+            <h1>Transactions</h1>
+            {{#each transact}}
+                {{>transactions}}
+            {{/each}}
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-12" id="paycheck">
+                    <h1>Days Until Next Paycheck: <span id="paycheckDays"></span></h1>
+                </div>
+                <div class-"col-md-12" id="expenses">
+                    <h1>Known Expenses Before Pay</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="savings col-md-12">
+            {{>savings}}
+        </div>
+    </div>
+</div>
