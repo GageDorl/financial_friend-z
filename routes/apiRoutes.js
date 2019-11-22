@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
@@ -19,8 +20,11 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
+      username: req.body.username,
+      name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      public_token: req.body.public_token
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {

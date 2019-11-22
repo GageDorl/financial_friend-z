@@ -29,92 +29,53 @@
         <div class="card">
           <div class="card-body">
             <h2>Sign Up Form</h2>
-            <form class="signup">
+
+            <form class="signup needs-validation">
               <div class="form-group">
                 <label for="user-name-input">Username</label>
-                <input type="text" class="form-control" id="user-name-input" placeholder="Username">
+                <input type="text" class="form-control" id="user-name-input" placeholder="Username" required>
+                <div id="username-tip">
+                  
+                </div>
                 <br>
                 <label for="name-input">Name</label>
-                <input type="text" class="form-control" id="name-input" placeholder="Name">
+                <input type="text" class="form-control" id="name-input" placeholder="Name" required>
+                <div id="name-tip">
+                    
+                  </div>
                 <br>
                 <label for="email-input">Email address</label>
-                <input type="email" class="form-control" id="email-input" placeholder="Email">
+                <input type="email" class="form-control" id="email-input" placeholder="Email" required>
+                <div id="email-tip">
+                    
+                  </div>
               </div>
               <div class="form-group">
                 <label for="password-input">Password</label>
-                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                <input type="password" class="form-control" id="password-input" placeholder="Password" required>
+                <div id="password-tip">
+                    
+                  </div>
                 <br>
-                <label for="confirmPassword"> Confirm Password</label>
-                <input type="password" class="form-control" id="confirminput" placeholder="Password">
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Password" required>
+                
+
               </div>
               <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="msg"></span>
               </div>
-              <button id="link-button" class="btn btn-primary">Link Account</button>
+
+              <input type=button id="link-button" class="btn btn-primary" value="Link Account">
+
 <script 
 src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script 
 src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
 <script type="text/javascript">
-(function($) {
-  var handler = Plaid.create({
-    clientName: 'Plaid Quickstart',
-    // Optional, specify an array of ISO-3166-1 alpha-2 country
-    // codes to initialize Link; European countries will have GDPR
-    // consent panel
-    countryCodes: ['US'],
-    env: 'development',
-    // Replace with your public_key from the Dashboard
-    key: 'd709a077c62c423a5d9652fa75e96b',
-    product: ['transactions'],
-    // Optional, use webhooks to get transaction and error updates
-    webhook: 'https://requestb.in',
-    // Optional, specify a language to localize Link
-    language: 'en',
-    // Optional, specify userLegalName and userEmailAddress to
-    // enable all Auth features
-    userLegalName: 'John Appleseed',
-    userEmailAddress: 'jappleseed@yourapp.com',
-    onLoad: function() {
-      // Optional, called when Link loads
-    },
-    onSuccess: function(public_token, metadata) {
-      // Send the public_token to your app server.
-      // The metadata object contains info about the institution the
-      // user selected and the account ID or IDs, if the
-      // Select Account view is enabled.
-      $.post('/get_access_token', {
-        public_token: public_token,
-      });
-    },
-    onExit: function(err, metadata) {
-      // The user exited the Link flow.
-      if (err != null) {
-        // The user encountered a Plaid API error prior to exiting.
-      }
-      // metadata contains information about the institution
-      // that the user selected and the most recent API request IDs.
-      // Storing this information can be helpful for support.
-    },
-    onEvent: function(eventName, metadata) {
-      // Optionally capture Link flow events, streamed through
-      // this callback as your users connect an Item to Plaid.
-      // For example:
-      // eventName = "TRANSITION_VIEW"
-      // metadata  = {
-      //   link_session_id: "123-abc",
-      //   mfa_type:        "questions",
-      //   timestamp:       "2017-09-14T14:42:19.350Z",
-      //   view_name:       "MFA",
-      // }
-    }
-  });
 
-  $('#link-button').on('click', function(e) {
-    handler.open();
-  });
-})(jQuery);
 </script>
             </form>
             <br />
