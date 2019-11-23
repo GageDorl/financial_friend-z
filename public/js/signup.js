@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 /* eslint-disable quotes */
 /* eslint-disable camelcase */
+=======
+>>>>>>> f8256ba859878f41fc7f2fffcc887eb247fd381b
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
   // Getting references to our form and input
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8256ba859878f41fc7f2fffcc887eb247fd381b
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
@@ -113,6 +120,7 @@ function validateSignUp(){
       //   timestamp:       "2017-09-14T14:42:19.350Z",
       //   view_name:       "MFA",
       // }
+<<<<<<< HEAD
     }
   });
 
@@ -120,8 +128,22 @@ function validateSignUp(){
     if(validateSignUp()){
       handler.open();
     }
+=======
+    }
+  });
+
+  $('#link-button').on('click', function(e) {
+    if(validateSignUp()){
+      handler.open();
+    }
+>>>>>>> f8256ba859878f41fc7f2fffcc887eb247fd381b
     else{
       alert("Your password's dont match and/or you haven't filled out everything you need");
     }
   });
+<<<<<<< HEAD
 })(jQuery);
+=======
+})(jQuery);
+
+>>>>>>> f8256ba859878f41fc7f2fffcc887eb247fd381b
