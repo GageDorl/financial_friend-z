@@ -2,8 +2,6 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
   // Getting references to our form and input
-
-
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
@@ -49,15 +47,15 @@ function validateSignUp(){
 }
 (function($) {
   var handler = Plaid.create({
-    clientName: 'Plaid Quickstart',
+    clientName: "Plaid Quickstart",
     // Optional, specify an array of ISO-3166-1 alpha-2 country
     // codes to initialize Link; European countries will have GDPR
     // consent panel
-    countryCodes: ['US'],
+    countryCodes: ["US"],
     env: 'development',
     // Replace with your public_key from the Dashboard
-    key: 'd709a077c62c423a5d9652fa75e96b',
-    product: ['transactions'],
+    key: "d709a077c62c423a5d9652fa75e96b",
+    product: ["transactions"],
     // Optional, use webhooks to get transaction and error updates
     webhook: 'https://requestb.in',
     // Optional, specify a language to localize Link
@@ -78,16 +76,19 @@ function validateSignUp(){
       // The metadata object contains info about the institution the
       // user selected and the account ID or IDs, if the
       // Select Account view is enabled.
-      $.post('/api/signup', {
-        username:user,
-        name:name,
-        email:email,
-        password:password,
-        public_token: public_token
-      }).then(function(data) {
-      window.location.replace(data);
-      // If there's an error, handle it by throwing up a boostrap alert
-    }).catch(handleLoginErr);
+      $.post('/get_access_token', {
+        public_token: public_token,
+      }).then(function(token){
+        $.post('/api/signup', {
+          username:user,
+          name:name,
+          email:email,
+          password:password,
+          public_token: token
+        }).then(function(data) {
+          window.location.replace(data);
+          // If there's an error, handle it by throwing up a boostrap alert
+        }).catch(handleLoginErr);});
     },
     onExit: function(err, metadata) {
       // The user exited the Link flow.
@@ -117,8 +118,9 @@ function validateSignUp(){
       handler.open();
     }
     else{
-      alert("Your password's dont match and/or you haven't filled out everything you need");
+      alert("Your passwords dont match and/or you have not provided the required information.");
     }
   });
+
 })(jQuery);
 
