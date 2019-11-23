@@ -65,7 +65,17 @@ app.post('/get_access_token', function(request, response, next) {
     ITEM_ID = tokenResponse.item_id;
     console.log('Access Token: ' + ACCESS_TOKEN);
     console.log('Item ID: ' + ITEM_ID);
-    response.json({'error': false});
+    response.json(ACCESS_TOKEN);
+  });
+});
+
+
+app.post('/accounts/balance/get',function(req, res){
+  
+  client.getBalance(req.body.token,(err, result) => {
+    // Handle err
+    
+    res.json(result.accounts[0].balances.available)
   });
 });
 
@@ -73,6 +83,7 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+  
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {

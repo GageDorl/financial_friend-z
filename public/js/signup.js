@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
@@ -77,16 +79,19 @@ function validateSignUp(){
       // The metadata object contains info about the institution the
       // user selected and the account ID or IDs, if the
       // Select Account view is enabled.
-      $.post('/api/signup', {
-        username:user,
-        name:name,
-        email:email,
-        password:password,
-        public_token: public_token
-      }).then(function(data) {
-      window.location.replace(data);
-      // If there's an error, handle it by throwing up a boostrap alert
-    }).catch(handleLoginErr);
+      $.post('/get_access_token', {
+        public_token: public_token,
+      }).then(function(token){
+        $.post('/api/signup', {
+          username:user,
+          name:name,
+          email:email,
+          password:password,
+          public_token: token
+        }).then(function(data) {
+          window.location.replace(data);
+          // If there's an error, handle it by throwing up a boostrap alert
+        }).catch(handleLoginErr);});
     },
     onExit: function(err, metadata) {
       // The user exited the Link flow.
