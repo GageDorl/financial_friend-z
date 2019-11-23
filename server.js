@@ -75,7 +75,7 @@ app.post('/accounts/balance/get',function(req, res){
   client.getBalance(req.body.token,(err, result) => {
     // Handle err
     
-    res.json(result.accounts[0].balances.available);
+    res.json(result.accounts[0].balances.available)
   });
 });
 
