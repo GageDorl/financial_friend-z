@@ -83,6 +83,17 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+  // Pull transactions for a date range
+  app.post("/transaction/get", function(req,res){
+    client.getTransactions(req.body.token, '2019-01-01', '2019-11-24', {
+      count: 300,
+      offset: 0,
+    }, (err, result) => {
+      // Handle err
+      res.json(result.transactions);
+  });
+  })
+  
   
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {

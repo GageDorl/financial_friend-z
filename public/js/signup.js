@@ -121,6 +121,4 @@ function validateSignUp(){
       alert("Your passwords dont match and/or you have not provided the required information.");
     }
   });
-
 })(jQuery);
-
