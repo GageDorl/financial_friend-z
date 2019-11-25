@@ -52,18 +52,18 @@ function validateSignUp(){
     // codes to initialize Link; European countries will have GDPR
     // consent panel
     countryCodes: ["US"],
-    env: 'development',
+    env: "development",
     // Replace with your public_key from the Dashboard
     key: "d709a077c62c423a5d9652fa75e96b",
     product: ["transactions"],
     // Optional, use webhooks to get transaction and error updates
-    webhook: 'https://requestb.in',
+    webhook: "https://requestb.in",
     // Optional, specify a language to localize Link
-    language: 'en',
+    language: "en",
     // Optional, specify userLegalName and userEmailAddress to
     // enable all Auth features
-    userLegalName: 'John Appleseed',
-    userEmailAddress: 'jappleseed@yourapp.com',
+    userLegalName: "John Appleseed",
+    userEmailAddress: "jappleseed@yourapp.com",
     onLoad: function() {
       // Optional, called when Link loads
     },
@@ -76,10 +76,10 @@ function validateSignUp(){
       // The metadata object contains info about the institution the
       // user selected and the account ID or IDs, if the
       // Select Account view is enabled.
-      $.post('/get_access_token', {
+      $.post("/get_access_token", {
         public_token: public_token,
       }).then(function(token){
-        $.post('/api/signup', {
+        $.post("/api/signup", {
           username:user,
           name:name,
           email:email,
@@ -113,7 +113,7 @@ function validateSignUp(){
     }
   });
 
-  $('#link-button').on('click', function(e) {
+  $("#link-button").on("click", function(e) {
     if(validateSignUp()){
       handler.open();
     }
