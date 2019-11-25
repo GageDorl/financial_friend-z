@@ -94,8 +94,12 @@ app.post('/accounts/balance/get',function(req, res){
   
   client.getBalance(req.body.token,(err, result) => {
     // Handle err
-    
-    res.json(result.accounts[0].balances.available)
+    if(result){
+      res.json(result.accounts[0].balances.available)
+    }
+    else{
+      console.log("Try again");
+    }
   });
 });
 
@@ -109,8 +113,12 @@ if (process.env.NODE_ENV === "test") {
       count: 300,
       offset: 0,
     }, (err, result) => {
-      // Handle err
-      res.json(result.transactions);
+      if(result){
+        res.json(result.transactions);
+      }
+      else{
+        console.log(err);
+      }
   });
   })
   
