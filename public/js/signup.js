@@ -2,7 +2,6 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
   // Getting references to our form and input
-
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
@@ -123,4 +122,3 @@ function validateSignUp(){
     }
   });
 })(jQuery);
-

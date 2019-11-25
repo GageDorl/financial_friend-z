@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+  
   <style>
     .transact{
       border:1px solid black;
@@ -18,7 +19,8 @@
     #transactions{
       background: lightblue;
       height:400px;
-      overflow-x:scroll;
+      
+      overflow-y:scroll;
     }
   </style>
 </head>
@@ -50,10 +52,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>Your next paycheck is in <span id=nextPay>(loading)</span></h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
 </body>
