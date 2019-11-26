@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
@@ -62,8 +63,6 @@ function validateSignUp(){
     language: "en",
     // Optional, specify userLegalName and userEmailAddress to
     // enable all Auth features
-    userLegalName: "John Appleseed",
-    userEmailAddress: "jappleseed@yourapp.com",
     onLoad: function() {
       // Optional, called when Link loads
     },
@@ -118,7 +117,7 @@ function validateSignUp(){
       handler.open();
     }
     else{
-      alert("Your passwords dont match and/or you have not provided the required information.");
+      alert("Your passwords do not match and/or you have not provided the required information.");
     }
   });
 })(jQuery);
