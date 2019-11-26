@@ -117,7 +117,7 @@ function validateSignUp(){
       handler.open();
     }
     else{
-      alert("Your password's dont match and/or you haven't filled out everything you need");
+      alert("Your passwords do not match and/or you have not provided the required information.");
     }
   });
 })(jQuery);
