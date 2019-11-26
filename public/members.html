@@ -7,6 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+<<<<<<< HEAD
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Telex|Work+Sans&display=swap" rel="stylesheet">
+=======
+  
   <style>
     .transact{
       border:1px solid black;
@@ -18,9 +22,12 @@
     #transactions{
       background: lightblue;
       height:400px;
-      overflow-x:scroll;
+      
+      overflow-y:scroll;
     }
+
   </style>
+>>>>>>> 2441c27efe05801b97accc5d8e876e2fa7450605
 </head>
 
 <body>
@@ -34,15 +41,13 @@
   </div>
 </nav>
   <div class="container">
-
       <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <h2>Welcome <span class="member-name"></span></h2>
+            <h2>Welcome, <b><span class="member-name"></span></b>!</h2>
           </div>
         </div>
-    <div class="jumbotron" >
-      <div class="display" ><h2>Your balance is ... <span id=balance style="float:right"></span></h2></div>
-
+    <div class="jumbotron">
+      <div class="display"><h2>Your balance is ...<span id=balance style="float:right"></span></h2></div>
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -52,10 +57,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>Your next paycheck is in <span id=nextPay>(loading)</span></h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
 </body>
