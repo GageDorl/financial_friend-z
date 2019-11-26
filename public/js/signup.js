@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
@@ -47,19 +48,19 @@ function validateSignUp(){
 }
 (function($) {
   var handler = Plaid.create({
-    clientName: 'Plaid Quickstart',
+    clientName: "Plaid Quickstart",
     // Optional, specify an array of ISO-3166-1 alpha-2 country
     // codes to initialize Link; European countries will have GDPR
     // consent panel
-    countryCodes: ['US'],
-    env: 'development',
+    countryCodes: ["US"],
+    env: "development",
     // Replace with your public_key from the Dashboard
-    key: 'd709a077c62c423a5d9652fa75e96b',
-    product: ['transactions'],
+    key: "d709a077c62c423a5d9652fa75e96b",
+    product: ["transactions"],
     // Optional, use webhooks to get transaction and error updates
-    webhook: 'https://requestb.in',
+    webhook: "https://requestb.in",
     // Optional, specify a language to localize Link
-    language: 'en',
+    language: "en",
     // Optional, specify userLegalName and userEmailAddress to
     // enable all Auth features
     onLoad: function() {
@@ -74,10 +75,10 @@ function validateSignUp(){
       // The metadata object contains info about the institution the
       // user selected and the account ID or IDs, if the
       // Select Account view is enabled.
-      $.post('/get_access_token', {
+      $.post("/get_access_token", {
         public_token: public_token,
       }).then(function(token){
-        $.post('/api/signup', {
+        $.post("/api/signup", {
           username:user,
           name:name,
           email:email,
@@ -111,7 +112,7 @@ function validateSignUp(){
     }
   });
 
-  $('#link-button').on('click', function(e) {
+  $("#link-button").on("click", function(e) {
     if(validateSignUp()){
       handler.open();
     }
