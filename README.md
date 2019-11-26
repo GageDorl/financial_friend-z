@@ -19,3 +19,4 @@ https://young-meadow-35704.herokuapp.com/
 * Sequelize
 * Chart.JS
 * Plaid API
+* Passport User Authentication
