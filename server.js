@@ -65,7 +65,7 @@ var client = new plaid.Client(
 
 // Plaid API routes
 //========================================================================
-// If running a test, set syncOptions.force to true
+// If running a test, set syncOptions.force to truegi
 // clearing the `testdb`
 
 app.post('/get_access_token', function(request, response, next) {
