@@ -1,7 +1,7 @@
 # financial_frenzy
 
 ### URL
-https://young-meadow-35704.herokuapp.com/
+https://powerful-dawn-47171.herokuapp.com/
 
 ![Screenshot of App](/public/images/screenshot.PNG)
 
