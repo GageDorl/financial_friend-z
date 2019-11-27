@@ -70,15 +70,16 @@
   height: 85%;
 }
 
-#charts{
-    height: 85%;
-    background-color: white;
+#chart-one{
     box-sizing: border-box;
+    width: 400px;
+    height: 355px;
     border: 15px solid rgb(0, 0, 0);
-}
-#myChart{
-  height: 85%;
-  width: 85;
+    padding: 50px;
+   background-color:  #eeee99;
+    position: relative;
+    float: left;  
+    border-radius:2px;
 }
 
   </style>
@@ -86,7 +87,7 @@
 
 <body>
   <nav class="navbar bg-light">
-      <a class="navbar-brand" style="font-size:35px; font-family: 'Tajawal'"><img src="images/ffz-logo1.PNG" width="50px"> financial frenzy</a>
+    <a class="navbar-brand" style="font-size:35px; font-family: 'Tajawal'"><img src="images/ffz-logo999.PNG" width="400px"></a>
       
       <a href="https://youtu.be/7pjbH5OuBc4?t=60"><img src="images/settings.png" width="30px" alt="alternative text" title="Settings"></a>
       <!-- <a class="navbar-item" href=/logout>Logout</a> -->
@@ -118,10 +119,14 @@
                           </div>
 
                           <div class="col-md-6">
-                            <div id = "charts">
+                            <div id = "charts"></div>
                             
                     
-                                <canvas id="myChart" width="60px" height="60px"></canvas>
+                              <div id = "chart-one">
+                                
+                                <canvas id="myChart" width="380" height="380"></canvas>
+                    
+                              </div>
                               
                             </div>
                           </div>
@@ -151,6 +156,7 @@
 
 
   var ctx = document.getElementById('myChart').getContext('2d');;
+ 
   var myChart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -159,12 +165,12 @@
               label: 'Spending Categories',
               data: [2,6 , 6, 2, 2, 3],
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
+                  'rgba(255, 99, 132, .7)',
+                  'rgba(54, 162, 235, .7)',
+                  'rgba(255, 206, 86, .7)',
+                  'rgba(75, 192, 192, .7)',
+                  'rgba(153, 102, 255, .7)',
+                  'rgba(255, 159, 64, .7)'
               ],
               borderColor: [
                   'rgba(255, 99, 132, 1)',
@@ -180,10 +186,15 @@
       options: {
         responseive: true,
           scales: {
+             
               yAxes: [{
+                gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            },
                   Display: false,
                   ticks: {
-                      beginAtZero: true
+            display: false 
+                      
                   }
               }]
           }
