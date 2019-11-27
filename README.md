@@ -21,3 +21,7 @@ https://powerful-dawn-47171.herokuapp.com/
 * Chart.JS
 * Plaid API
 * Passport User Authentication
+
+
+
+![Screenshot (26)](https://user-images.githubusercontent.com/53095806/69685532-b8ca0500-108a-11ea-9091-c4d6d418b5f1.png)
