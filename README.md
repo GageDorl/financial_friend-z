@@ -1,9 +1,9 @@
 # financial_frenzy
 
 ### URL
-https://powerful-dawn-47171.herokuapp.com/
+https://powerful-dawn-47171.herokuapp.com
 
-![Screenshot of App](/public/images/screenshot.PNG)
+
 
 ### Overview
 
@@ -21,3 +21,20 @@ https://powerful-dawn-47171.herokuapp.com/
 * Chart.JS
 * Plaid API
 * Passport User Authentication
+* JQuery
+* MomentJS
+
+
+
+# SCREENSHOT OF WORKING APP
+
+![Screenshot (26)](https://user-images.githubusercontent.com/53095806/69685875-ea8f9b80-108b-11ea-871b-490ce88c6235.png)
+
+
+
+![Screenshot (27)](https://user-images.githubusercontent.com/53095806/69685879-ecf1f580-108b-11ea-9b68-45a9f4780c64.png)
+
+
+
+
+![Screenshot (28)](https://user-images.githubusercontent.com/53095806/69685883-f11e1300-108b-11ea-9b25-40fe03aaf94a.png)
